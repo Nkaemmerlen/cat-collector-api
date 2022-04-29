@@ -1,4 +1,3 @@
-from socket import J1939_PGN_ADDRESS_COMMANDED
 from flask import Blueprint, jsonify, request
 from api.middleware import login_required, read_token
 
@@ -39,7 +38,7 @@ def update(id):
   if cat.profile_id != profile["id"]:
     return 'Forbidden', 403
 
-  for ket in data:
+  for key in data:
     setattr(cat, key, data[key])
 
   db.session.commit()
