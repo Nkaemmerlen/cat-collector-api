@@ -7,7 +7,7 @@ class Toy(db.Model):
   name = db.Column(db.String(100))
   color = db.Column(db.String(100))
   description = db.Column(db.String(250))
-  created_at = db.column(db.Datetime, default=datetime.utcnow)
+  created_at = db.Column(db.DateTime, default=datetime.utcnow)
   profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
 
   def __repr__(self):
