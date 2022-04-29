@@ -13,6 +13,7 @@ from api.models.toy import Toy
 from api.views.auth import auth
 from api.models.cat import Cat
 from api.views.cats import cats
+from api.views.toys import toys
 
 cors = CORS()
 migrate = Migrate() 
@@ -29,6 +30,7 @@ def create_app(config):
   # ============ Register Blueprints ============
   app.register_blueprint(auth, url_prefix='/api/auth')
   app.register_blueprint(cats, url_prefix='/api/cats')
+  app.register_blueprint(toys, url_prefix='/api/toys')
 
   return app
 

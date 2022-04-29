@@ -1,4 +1,5 @@
 from cmath import log
+import json
 from flask import Blueprint, jsonify, request
 from api.middleware import login_required, read_token
 
@@ -18,3 +19,8 @@ def create():
   db.session.add(toy)
   db.session.commit()
   return jsonify(toy.serialize()), 201
+
+@toys.route('/', methods=["GET"])
+def index():
+  toys =  Toy.query.all()
+  return jsonify([toy.serialize() for toy in toys]), 201
